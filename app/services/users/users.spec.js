@@ -54,10 +54,23 @@ describe('Users factory', function() {
                 expect(Users.all).toBeDefined();
             });
 
-        // A test to verify that calling all() returns the array of users we hard-coded above
-        it('should return a hard-coded list of users', function() {
-            expect(Users.all()).toEqual(userList);
-        });            
-    });
+            // A test to verify that calling all() returns the array of users we hard-coded above
+            it('should return a hard-coded list of users', function() {
+                expect(Users.all()).toEqual(userList);
+            });            
+        });
+
+        // A set of tests for our Users.findById() method
+        describe('.findById()', function() {
+            // A simple test to verify the method findById exists
+            it('should exist', function() {
+                expect(Users.findById).toBeDefined();
+            });
+
+            // A test to verify that calling findById() with an id that doesn't exist, in this case 'ABC', returns undefined
+            it('should return undefined if the user cannot be found', function() {
+                expect(Users.findById('ABC')).not.toBeDefined();
+            });
+        });
 
   });
